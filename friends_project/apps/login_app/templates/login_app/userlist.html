@@ -1,0 +1,26 @@
+<h1> welcome admin to the promised land</h1>
+<table>
+	<tr>
+		<th>first name</th>
+		<th>last name</th>
+		<th>email</th>
+		<th>admin?</th>
+		<th>view</th>
+		<th>delete</th>
+
+	</tr>
+{%for i in users%}
+	<tr>
+		<td>{{i.first_name}}</td>
+		<td>{{i.last_name}}</td>
+		<td>{{i.email}}</td>
+		<td>{{i.admin}}</td>
+		<td><a href="/users/{{i.id}}/">view user</a></td>
+		<td><a href="/users/{{i.id}}/delete/">delete</a></td>
+	</tr>
+
+{%endfor%}
+
+</table>
+
+<a href="/main/">Back to main menu</a>

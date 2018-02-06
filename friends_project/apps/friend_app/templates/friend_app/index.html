@@ -1,0 +1,68 @@
+<h1> Thank you for logging in {{first_name}}</h1>
+{% if admin %}
+	<a href="/users/">edit users</a><br>
+{%endif%}
+
+<a href="/logout/">Don't forget to logout</a>
+
+
+
+{%if friends_on%}
+<h1> your friends </h1>
+<table>
+	<tr>
+		<th>alias</th>
+
+		<th>email</th>
+		<th> view profile</th>
+		<th>unfriend them....</th>
+
+
+
+	</tr>
+
+
+
+
+{%for i in friends%}
+	<tr>
+		<td>{{i.alias}}</td>
+
+		<td>{{i.email}}</td>
+		<td> <a href='/friends/view/{{i.id}}/'>view profile</a></td>
+		<td> <a href='/friends/remove/{{i.id}}/'>remove friend</a></td>
+
+
+	</tr>
+
+{%endfor%}
+
+</table>
+
+{%else%}
+
+<h1> you don't currently have any friends </h1>
+{%endif %}
+<h1> Other users not on your friends list:</h1>
+<table>
+	<tr>
+		<th>alias</th>
+
+		<th>make a new friend?</th>
+
+
+	</tr>
+{%for i in not_friends%}
+	<tr>
+		<td><a href='/friends/view/{{i.id}}/'>{{i.alias}}</a></td>
+
+
+
+		<td> <a href='/friends/add/{{i.id}}/'>add friend</a></td>
+
+
+	</tr>
+
+{%endfor%}
+
+</table>

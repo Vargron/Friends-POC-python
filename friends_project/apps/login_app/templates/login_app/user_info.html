@@ -1,0 +1,23 @@
+<h1>user detail for id={{id}}</h1>
+<form action="/users/{{id}}/edit/" method="post">
+	{%csrf_token%}
+	<label>First name: {{first_name}}</label>
+	<input type="text" value="{{first_name}}" name="first_name"><br>
+	<label>last name: {{last_name}}</label>
+	<input type="text" value="{{last_name}}" name="last_name"><br>
+	<label>Email: {{email}}</label>
+	<input type="text" value="{{email}}" name="email"><br>
+	<label>Birth Date: {{birth_date}}</label>
+	<input type="date" value="{{birth_date}}" name="birth_date"><br>
+	<label>admin: {{admin}}</label>
+	<select  value="{{admin}}" name="admin">
+		<option>True</option>
+		<option>False</option>
+	</select>
+		<br>
+
+	<input type="submit" value="edit this user">
+</form>
+
+
+<a href="/users/">Go Back!</a>
